@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
 async function getRanking(): Promise<Ranking[]> {
-  const res = await fetch('http://localhost:3000/api/ranking', { cache: 'no-cache' })
+  const res = await fetch('https://rk.hanbin.dev/api/ranking', { cache: 'no-cache' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
