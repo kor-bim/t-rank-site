@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 import { NextResponse } from 'next/server'
-
-const prisma = new PrismaClient()
+import { prisma } from '@/libs'
 
 export async function GET() {
   const ranking = await prisma.ranking.findMany({
