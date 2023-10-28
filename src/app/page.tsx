@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
 async function getRanking(): Promise<Ranking[]> {
-  const res = await fetch('https://rk.hanbin.dev/api/ranking', { cache: 'no-cache' })
+  const res = await fetch(`${process.env.API_URL}/api/ranking`, { cache: 'no-cache' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -36,7 +36,7 @@ export default function MainPage() {
   }, [])
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center justify-center gap-16">
+    <div className="w-full h-[80dvh] max-w-5xl flex flex-col items-center justify-center gap-16">
       {status === 'authenticated' ? (
         <Button fullWidth size="lg" color="success" variant="bordered" as={NextLink} href="/match-register/player">
           게임등록
