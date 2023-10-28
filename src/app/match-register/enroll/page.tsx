@@ -7,7 +7,7 @@ import { Avatar } from '@nextui-org/avatar'
 import React from 'react'
 import { Button } from '@nextui-org/button'
 
-export async function createMatch(player, game) {
+async function createMatch(player: any, game: any) {
   const res = await fetch('/api/match', {
     method: 'POST',
     body: JSON.stringify({ player, game })

@@ -10,7 +10,7 @@ import { Chip } from '@nextui-org/chip'
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
-export async function getRanking(): Promise<Ranking[]> {
+async function getRanking(): Promise<Ranking[]> {
   const res = await fetch('http://localhost:3000/api/ranking', { cache: 'no-cache' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

@@ -5,7 +5,6 @@
  * @example
  * createQueryString({ a: 1, b: 2, c: '가나다' }) // '?a=1&b=2&c=%EA%B0%80%EB%82%98%EB%8B%A4',
  * createQueryString({}) // ''
- * @param  {Params} params 프로퍼티의 이름은 string이고, 값은 string | number | string[] | number[]이어야 합니다.
  */
 export function createQueryString(params: Record<string, any>) {
   const queryString = createSearchParamString(params)

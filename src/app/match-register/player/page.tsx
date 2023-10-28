@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { encodeAndStringifyObject } from '@/libs'
 
-export async function getUser(): Promise<User[]> {
+async function getUser(): Promise<User[]> {
   const res = await fetch('/api/users', { cache: 'no-cache' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
