@@ -91,7 +91,10 @@ export default function MainPage() {
         ))}
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-5">
-        <span className="text-5xl font-bold">야수의 눈으로 승리를 쟁취하라</span>
+        <div className="w-full flex flex-col items-center justify-center">
+          <span className="text-5xl font-bold">야수의 눈으로</span>
+          <span className="text-5xl font-bold">승리를 쟁취하라</span>
+        </div>
         <Image isBlurred src="/야수의눈으로 승리를 쟁취하라.png" alt="야수의눈으로 승리를 쟁취하라" />
       </div>
 
