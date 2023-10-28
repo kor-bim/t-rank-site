@@ -21,6 +21,21 @@ export const metadata: Metadata = {
       url: 'https://hanbin.dev'
     }
   ],
+  openGraph: {
+    title: 'RK',
+    description: 'Ranking',
+    url: 'https://rk.hanbin.dev',
+    siteName: 'RK',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 600
+      }
+    ],
+    locale: 'ko_KR',
+    type: 'website'
+  },
   creator: 'hanbin',
   viewport: 'viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 }
