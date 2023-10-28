@@ -36,13 +36,16 @@ export default function MainPage() {
   }, [])
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center justify-center gap-16">
+    <div className="relative w-full max-w-5xl flex flex-col items-center justify-center gap-16">
       {status === 'authenticated' ? (
         <Button fullWidth size="lg" color="success" variant="bordered" as={NextLink} href="/match-register/player">
           게임등록
         </Button>
       ) : null}
-
+      <div className="w-full flex flex-col items-center justify-center">
+        <span className="text-5xl font-bold">승리를 원하는가?</span>
+        <Image isBlurred src="/2.png" alt="trophy" />
+      </div>
       <div className="w-full flex flex-col items-center justify-center gap-2">
         {rankings.map((ranking, index) => (
           <Card
@@ -87,6 +90,12 @@ export default function MainPage() {
           </Card>
         ))}
       </div>
+      <div className="w-full flex flex-col items-center justify-center gap-5">
+        <span className="text-5xl font-bold">야수의 눈으로 승리를 쟁취하라</span>
+        <Image isBlurred src="/야수의눈으로 승리를 쟁취하라.png" alt="야수의눈으로 승리를 쟁취하라" />
+      </div>
+
+      <Image isBlurred src="/1.png" alt="1" />
     </div>
   )
 }
