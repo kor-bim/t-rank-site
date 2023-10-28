@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     }
   ],
   openGraph: {
-    title: 'RK-승리를 쟁취하라',
+    title: '챔피언은 누구?',
     description: '야수의 눈으로 승리를 쟁취하라',
     url: 'https://rk.hanbin.dev',
     siteName: 'RK',
