@@ -36,7 +36,7 @@ export default function MainPage() {
   }, [])
 
   return (
-    <div className="relative w-full max-w-5xl flex flex-col items-center justify-center gap-16 p-5">
+    <div className="relative w-full max-w-5xl flex flex-col items-center justify-center gap-16">
       {status === 'authenticated' ? (
         <Button fullWidth size="lg" color="success" variant="bordered" as={NextLink} href="/match-register/player">
           게임등록
