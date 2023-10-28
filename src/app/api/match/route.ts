@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import Prisma from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
-export const prisma = new Prisma.PrismaClient()
+const prisma = new PrismaClient()
 
 function calculate_new_rankings(P1_before, P2_before, I, W1) {
   const dr = P1_before - P2_before

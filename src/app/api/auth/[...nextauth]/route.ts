@@ -3,9 +3,9 @@ import NaverProvider from 'next-auth/providers/naver'
 import KakaoProvider from 'next-auth/providers/kakao'
 import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import Prisma from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
-export const prisma = new Prisma.PrismaClient()
+const prisma = new PrismaClient()
 const handler = NextAuth({
   providers: [
     NaverProvider({
