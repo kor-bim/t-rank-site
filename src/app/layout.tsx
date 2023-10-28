@@ -33,7 +33,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <div className="relative flex flex-col">
             <Navbar />
-            <main className={'w-full flex flex-col items-center justify-center py-10 gap-5 z-10'}>{children}</main>
+            <main className={'w-full h-[80dvh] flex flex-col items-center justify-center py-10 gap-5 z-10'}>
+              {children}
+            </main>
             <GradientBackground />
           </div>
         </Providers>
