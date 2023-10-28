@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client'
 import { NextResponse } from 'next/server'
+import Prisma from '@prisma/client'
 
-const prisma = new PrismaClient()
+export const prisma = new Prisma.PrismaClient()
 
 export async function GET() {
   const ranking = await prisma.ranking.findMany({
