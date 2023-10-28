@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       {
         url: 'https://rk.hanbin.dev/og-image.png',
         width: 1200,
-        height: 600
+        height: 630
       }
     ],
     locale: 'ko_KR',
