@@ -43,7 +43,9 @@ export default function MainPage() {
         </Button>
       ) : null}
       <div className="w-full flex flex-col items-center justify-center">
-        <span className="text-5xl font-bold">승리를 원하는가?</span>
+        <span className="text-5xl font-bold">
+          <span className="text-primary">승리</span>를 원하는가?
+        </span>
         <Image isBlurred src="/2.png" alt="trophy" />
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-2">
@@ -91,9 +93,11 @@ export default function MainPage() {
         ))}
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-5">
-        <div className="w-full flex flex-col items-center justify-center">
-          <span className="text-5xl font-bold">야수의 눈으로</span>
-          <span className="text-5xl font-bold">승리를 쟁취하라</span>
+        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-1">
+          <span className="text-5xl font-bold text-danger">야수의 눈으로</span>
+          <span className="text-5xl font-bold">
+            <span className="text-primary">승리</span>를 쟁취하라
+          </span>
         </div>
         <Image isBlurred src="/야수의눈으로 승리를 쟁취하라.png" alt="야수의눈으로 승리를 쟁취하라" />
       </div>
