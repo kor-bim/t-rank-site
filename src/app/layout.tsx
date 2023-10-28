@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     }
   ],
   openGraph: {
-    title: 'RK',
-    description: 'Ranking',
+    title: 'RK-승리를 쟁취하라',
+    description: '야수의 눈으로 승리를 쟁취하라',
     url: 'https://rk.hanbin.dev',
     siteName: 'RK',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://rk.hanbin.dev/og-image.png',
         width: 1200,
         height: 600
       }
