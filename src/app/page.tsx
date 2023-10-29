@@ -2,38 +2,28 @@
 
 import { Button } from '@nextui-org/button'
 import NextLink from 'next/link'
-import { Ranking } from '@/app/type'
 import { Card, CardBody } from '@nextui-org/card'
 import { round } from 'lodash'
 import { Image } from '@nextui-org/image'
 import { Chip } from '@nextui-org/chip'
-import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
+import { useQuery } from '@tanstack/react-query'
+import { fetchRankingList } from '@/app/api/ranking/hooks'
 
-async function getRanking(): Promise<Ranking[]> {
-  const res = await fetch('/api/ranking', { cache: 'no-cache' })
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  const { ranking } = await res.json()
-
-  return ranking
-}
 export default function MainPage() {
-  const [rankings, setRankings] = useState<Ranking[]>([])
   const { data: session, status } = useSession()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        return await getRanking()
-      } catch (error) {
-        console.error(error)
-      }
-    }
+  const {
+    isError,
+    isLoading,
+    data: rankings
+  } = useQuery({
+    queryKey: ['rankings'],
+    queryFn: fetchRankingList
+  })
 
-    fetchData().then((r) => setRankings(r))
-  }, [])
+  if (isError) return null
+  if (isLoading) return null
 
   return (
     <div className="relative w-full max-w-5xl flex flex-col items-center justify-center gap-16">

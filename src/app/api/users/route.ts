@@ -4,5 +4,5 @@ import { prisma } from '@/libs'
 export async function GET() {
   const users = await prisma.user.findMany()
 
-  return NextResponse.json({ users })
+  return NextResponse.json(users)
 }

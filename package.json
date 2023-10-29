@@ -12,6 +12,9 @@
     "@auth/prisma-adapter": "^1.0.4",
     "@nextui-org/react": "^2.1.13",
     "@prisma/client": "^5.4.2",
+    "@tanstack/react-query": "^5.0.5",
+    "@tanstack/react-query-devtools": "^5.4.2",
+    "axios": "^1.6.0",
     "framer-motion": "^10.16.4",
     "lodash": "^4.17.21",
     "mysql": "^2.18.1",
@@ -24,6 +27,7 @@
     "sonner": "^1.0.3"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.0.5",
     "@types/lodash": "^4.14.200",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -1,41 +1,31 @@
 'use client'
 
 import { Button } from '@nextui-org/button'
-import { User } from 'next-auth'
 import { SelectUser } from '../_components'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'sonner'
 import { encodeAndStringifyObject } from '@/libs'
-
-async function getUser(): Promise<User[]> {
-  const res = await fetch('/api/users', { cache: 'no-cache' })
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  const { users } = await res.json()
-
-  return users
-}
+import { useQuery } from '@tanstack/react-query'
+import { fetchUserList } from '@/app/api/users/hooks'
 
 export default function MatchRegisterPlayerPage() {
   const router = useRouter()
-  const [users, setUsers] = useState<User[]>([])
 
   const [playerOne, setPlayerOne] = useState(new Set([]))
   const [playerTwo, setPlayerTwo] = useState(new Set([]))
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        return await getUser()
-      } catch (error) {
-        console.error(error)
-      }
-    }
+  const {
+    isError,
+    isLoading,
+    data: users
+  } = useQuery({
+    queryKey: ['users'],
+    queryFn: fetchUserList
+  })
 
-    fetchData().then((r) => setUsers(r))
-  }, [])
+  if (isError) return null
+  if (isLoading) return null
 
   const onNextHandler = () => {
     if (playerOne.size === 0 || playerTwo.size === 0) {

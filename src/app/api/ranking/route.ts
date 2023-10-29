@@ -41,5 +41,5 @@ export async function GET() {
     })
   )
 
-  return NextResponse.json({ ranking: processedRanking })
+  return NextResponse.json(processedRanking)
 }
