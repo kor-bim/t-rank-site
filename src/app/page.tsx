@@ -53,7 +53,12 @@ export default function MainPage() {
               <div className="w-full flex flex-row items-center justify-between md:justify-start gap-16">
                 <span className="text-7xl font-bold mx-10">{index + 1}</span>
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-5">
-                  <Image src={ranking.user.image} alt={`${ranking.user.name}-image`} />
+                  <Image
+                    width={110}
+                    className="h-[110px]"
+                    src={ranking.user.image}
+                    alt={`${ranking.user.name}-image`}
+                  />
                   <div className="max-w-[200px] flex flex-col items-start justify-center gap-5">
                     <span className="text-3xl font-bold">{ranking.user.name}</span>
                   </div>
