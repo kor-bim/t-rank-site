@@ -89,7 +89,7 @@ export default function MainPage() {
             <span className="text-primary">승리</span>를 쟁취하라
           </span>
         </div>
-        <Image isBlurred src="/야수의눈으로 승리를 쟁취하라.png" alt="야수의눈으로 승리를 쟁취하라" />
+        <Image isBlurred src="/beast-eye.png" alt="야수의눈으로 승리를 쟁취하라" />
       </div>
 
       <Image isBlurred src="/1.png" alt="1" />

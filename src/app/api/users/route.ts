@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/libs'
+import { db } from '@/libs'
+
+export const revalidate = 0
 
 export async function GET() {
-  const users = await prisma.user.findMany()
+  const users = await db.user.findMany()
 
   return NextResponse.json(users)
 }

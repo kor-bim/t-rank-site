@@ -3,7 +3,7 @@ import NaverProvider from 'next-auth/providers/naver'
 import KakaoProvider from 'next-auth/providers/kakao'
 import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import { prisma } from '@/libs'
+import { db } from '@/libs'
 
 const handler = NextAuth({
   providers: [
@@ -20,7 +20,7 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
     })
   ],
-  adapter: PrismaAdapter(prisma)
+  adapter: PrismaAdapter(db)
 })
 
 export { handler as GET, handler as POST }

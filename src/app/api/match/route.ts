@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/libs'
+import { db } from '@/libs'
 
+export const revalidate = 0
 function calculate_new_rankings(P1_before, P2_before, I, W1) {
   const dr = P1_before - P2_before
   const We1 = 1 / (10 ** (-dr / 600) + 1)
@@ -17,8 +18,8 @@ export async function POST(request: Request) {
 
   const defaultRank = 0
 
-  const p1_current = (await prisma.ranking.findUnique({ where: { userId: player.p1.id } })) || { points: defaultRank }
-  const p2_current = (await prisma.ranking.findUnique({ where: { userId: player.p2.id } })) || { points: defaultRank }
+  const p1_current = (await db.ranking.findUnique({ where: { userId: player.p1.id } })) || { points: defaultRank }
+  const p2_current = (await db.ranking.findUnique({ where: { userId: player.p2.id } })) || { points: defaultRank }
 
   let W1
 
@@ -46,19 +47,19 @@ export async function POST(request: Request) {
     W1
   )
 
-  await prisma.ranking.upsert({
+  await db.ranking.upsert({
     where: { userId: player.p1.id },
     create: { userId: player.p1.id, points: p1_new_ranking },
     update: { points: p1_new_ranking }
   })
 
-  await prisma.ranking.upsert({
+  await db.ranking.upsert({
     where: { userId: player.p2.id },
     create: { userId: player.p2.id, points: p2_new_ranking },
     update: { points: p2_new_ranking }
   })
 
-  await prisma.match.create({
+  await db.match.create({
     data: {
       userId1: player.p1.id,
       userId2: player.p2.id,

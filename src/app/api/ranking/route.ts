@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/libs'
+import { db } from '@/libs'
+
+export const revalidate = 0
 
 export async function GET() {
-  const ranking = await prisma.ranking.findMany({
+  const ranking = await db.ranking.findMany({
     include: {
       user: true
     },
@@ -15,12 +17,12 @@ export async function GET() {
   const processedRanking = await Promise.all(
     ranking.map(async (rankingData) => {
       const userId = rankingData.userId
-      const allMatches1 = await prisma.match.findMany({
+      const allMatches1 = await db.match.findMany({
         where: { userId1: userId },
         orderBy: { id: 'desc' },
         take: 3
       })
-      const allMatches2 = await prisma.match.findMany({
+      const allMatches2 = await db.match.findMany({
         where: { userId2: userId },
         orderBy: { id: 'desc' },
         take: 3
